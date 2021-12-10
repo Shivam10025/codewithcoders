@@ -1,7 +1,11 @@
 import 'package:codewithcoders/screen/homescreen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setPathUrlStrategy();
   runApp(const MyApp());
 }
 
@@ -18,7 +22,10 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => HomeScreen(),
+      },
     );
   }
 }
